@@ -457,7 +457,7 @@
             <li class="nav-item"><a class="nav-link" href="Pagina_Inicial.html">Página Inicial</a></li>
             <li class="nav-item"><a class="nav-link" href="Login.html">Login</a></li>
             <li class="nav-item"><a class="nav-link" href="Busca_mobile.html">Buscar Serviços</a></li>
-            <li class="nav-item"><a class="nav-link" href="Prestar_Servico.html">Prestar Serviços</a></li>
+            <li class="nav-item"><a class="nav-link" href="usuario_prestador.html">Prestar Serviços</a></li>
             <li class="nav-item"><a class="nav-link" href="Quem_Somos.html">Quem Somos</a></li>
             <li class="nav-item"><a class="nav-link" href="Termos_de_Uso.html">Termos de Uso</a></li>
           </ul>
@@ -616,7 +616,7 @@
         <h3 class="side-title">Ações</h3>
         <div class="d-grid gap-2">
           <a href="Pagina_Inicial.html" class="btn btn-outline-help text-decoration-none">Voltar para a página inicial</a>
-          <a href="Prestador.html" class="btn btn-help text-decoration-none">Área do prestador</a>
+          <a href="usuario_prestador.html" class="btn btn-help text-decoration-none">Área do prestador</a>
         </div>
       </div>
     </aside>
@@ -743,19 +743,24 @@
     document.getElementById("formPerfil").addEventListener("submit", function (e) {
       e.preventDefault();
 
-      const usuarioAtualizado = {
-        nome: nomeInput.value.trim(),
-        email: emailInput.value.trim().toLowerCase(),
-        telefone: telefoneInput.value.trim(),
-        cpf: cpfInput.value.trim(),
-        senha: senhaInput.value.trim(),
-        foto: fotoBase64,
-        headline: headlineInput.value.trim(),
-        sobre: sobreInput.value.trim()
-      };
+      // Pega os dados que já existem para não apagar o isPrestador e os serviços
+      let usuarioAtualizado = JSON.parse(localStorage.getItem("usuario")) || {};
 
+      // Atualiza apenas os campos do perfil geral
+      usuarioAtualizado.nome = nomeInput.value.trim();
+      usuarioAtualizado.email = emailInput.value.trim().toLowerCase();
+      usuarioAtualizado.telefone = telefoneInput.value.trim();
+      usuarioAtualizado.cpf = cpfInput.value.trim();
+      usuarioAtualizado.senha = senhaInput.value.trim();
+      usuarioAtualizado.foto = fotoBase64;
+      usuarioAtualizado.headline = headlineInput.value.trim();
+      usuarioAtualizado.sobre = sobreInput.value.trim();
+
+      // Salva de volta no localStorage
       localStorage.setItem("usuario", JSON.stringify(usuarioAtualizado));
-      localStorage.setItem("usuarioCadastro", JSON.stringify(usuarioAtualizado));
+      if (localStorage.getItem("usuarioCadastro")) {
+        localStorage.setItem("usuarioCadastro", JSON.stringify(usuarioAtualizado));
+      }
 
       preencherPerfil();
       alternarEdicao(false);
