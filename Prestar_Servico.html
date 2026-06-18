@@ -240,15 +240,21 @@
       height:100%;
     }
 
-    .category{
+     .category{
       text-align:center;
       margin-bottom:20px;
     }
 
+    .category a{
+      text-decoration:none;
+      color:#000;
+      font-weight:600;
+    }
+
     .category-icon{
-      width:70px;
-      height:70px;
-      background:#d5d5d5;
+      width:72px;
+      height:72px;
+      background:var(--cinza-claro);
       border-radius:50%;
       display:flex;
       align-items:center;
@@ -256,8 +262,13 @@
       margin:auto;
       margin-bottom:10px;
       font-size:28px;
+      transition:.2s;
     }
 
+    .category a:hover .category-icon{
+      background:var(--dourado);
+      color:white;
+    }
     .why{
       background:#f8f9fb;
       padding:60px 70px;
@@ -799,41 +810,84 @@
     </div>
   </div>
 
-  t<div class="section">
+  <div class="section">
+   <!-- CATEGORIAS -->
+  <div class="section container">
     <h4 class="mb-4">Categorias Populares</h4>
 
-    <div class="row">
+    <div class="row row-cols-2 row-cols-md-4 row-cols-lg-6 g-4">
       <div class="col category">
-        <div class="caegory-icon">💼</div>
-        Geral
+        <a href="Geral.html">
+          <div class="category-icon">💼</div>
+          Geral
+        </a>
       </div>
 
       <div class="col category">
-        <div class="category-icon">🧹</div>
-        Limpeza
+        <a href="Limpeza.html">
+          <div class="category-icon">🧹</div>
+          Limpeza
+        </a>
       </div>
 
       <div class="col category">
-        <div class="category-icon">🔧</div>
-        Manutenção
+        <a href="Manutencao.html">
+          <div class="category-icon">🔧</div>
+          Manutenção
+        </a>
       </div>
 
       <div class="col category">
-        <div class="category-icon">🛠️</div>
-        Construção
+        <a href="Construcao.html">
+          <div class="category-icon">🛠️</div>
+          Construção
+        </a>
       </div>
 
       <div class="col category">
-        <div class="category-icon">💻</div>
-        Tecnologia
+        <a href="Tecnologia.html">
+          <div class="category-icon">💻</div>
+          Tecnologia
+        </a>
       </div>
 
       <div class="col category">
-        <div class="category-icon">🏢</div>
-        Administração
+        <a href="Administracao.html">
+          <div class="category-icon">🏢</div>
+          Administração
+        </a>
+      </div>
+
+      <div class="col category">
+        <a href="Eletrica.html">
+          <div class="category-icon">⚡</div>
+          Elétrica
+        </a>
+      </div>
+
+      <div class="col category">
+        <a href="Educacao.html">
+          <div class="category-icon">📚</div>
+          Educação
+        </a>
+      </div>
+
+      <div class="col category">
+        <a href="Jardinagem.html">
+          <div class="category-icon">🌿</div>
+          Jardinagem
+        </a>
+      </div>
+
+      <div class="col category">
+        <a href="Outros.html">
+          <div class="category-icon">➕</div>
+          Outros
+        </a>
       </div>
     </div>
   </div>
+
 
   <div class="why row align-items-center">
     <div class="col-lg-6">
